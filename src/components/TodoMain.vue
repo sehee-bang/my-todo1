@@ -25,14 +25,15 @@
 
 <script>
 export default {
-    props: ['todos'],
+    
     data(){
+        return {
         todos:[
         {text: '공부하기', state: 'yet'},
         {text: '운동하기', state: 'done'},
         {text: '글쓰기', state: 'done'},
       ]
-    }
+    }}
 }
 </script>
 
