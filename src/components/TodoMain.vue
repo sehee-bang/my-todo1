@@ -8,8 +8,8 @@
           <button class="btn add">Add</button>
         </div>
         <ul class="list">
-          <li v-for="todo in todos" :key="todo.text">
-            <i class="far fa-check-square"></i>
+          <li v-for="(todo, i) in todos" :key="todo.text">
+            <i :class="[todo.state === 'yet' ? 'far' : 'fas', 'fa-check-square']"></i>
             <span>{{ todo.text }}
               <b>
                 <a href="">Edit</a>
