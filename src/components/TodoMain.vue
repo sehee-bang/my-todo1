@@ -4,11 +4,11 @@
     <main>
       <div class="todos">
         <div class="write">
-          <input type="text" id="content"/>
-          <button class="btn add" @click="addItem()">Add</button>
+          <input type="text" v-model="addItemText" @keyup.enter="addItem"/>
+          <button class="btn add" @click="addItem">Add</button>
         </div>
         <ul class="list">
-          <li v-for="(todo, i) in todos" :key="todo.text">
+          <li v-for="(todo, i) in todos" :key="i">
             <i :class="[todo.state === 'yet' ? 'far' : 'fas', 'fa-check-square']"></i>
             <span>{{ todo.text }}
               <b>
@@ -37,9 +37,9 @@ export default {
     }},
     methods: {
         addItem() {
-            let content = document.getElementById('content').value
-            this.addItemText = content
-            this.todos.push({text:content, state:''})
+            if(!this.addItem === '') return; 
+            this.todos.push({text:this.addItemText , state:'yet'});
+            this.addItemText = '';
         }
     }
 }
