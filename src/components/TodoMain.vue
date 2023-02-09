@@ -8,10 +8,9 @@
           <button class="btn add">Add</button>
         </div>
         <ul class="list">
-          <li>
+          <li v-for="todo in todos" :key="todo.text">
             <i class="far fa-check-square"></i>
-            <span>
-              원고 챕터1 마감
+            <span>{{ todo.text }}
               <b>
                 <a href="">Edit</a>
                 <a href="">Del</a>
@@ -26,11 +25,14 @@
 
 <script>
 export default {
-    todos:[
+    props: ['todos'],
+    data(){
+        todos:[
         {text: '공부하기', state: 'yet'},
         {text: '운동하기', state: 'done'},
         {text: '글쓰기', state: 'done'},
       ]
+    }
 }
 </script>
 
